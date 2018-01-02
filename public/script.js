@@ -18,7 +18,7 @@ var clearCart = function () {
 }
 
 $('.view-cart').on('click', function () {
-  // TODO: hide/show the shopping cart!
+  $(".shopping-cart").toggleClass('show'); 
 });
 
 $('.add-to-cart').on('click', function () {
