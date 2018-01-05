@@ -33,10 +33,20 @@ var addToCart = function (name, price) {
   console.log(cart);
 }
 
+var removeFromCart = function (itemToRemove) {
+  var itemIndex = itemToRemove.index();
+  cart.splice(itemIndex, 1);
+  console.log(cart);
+  updateCart();
+}
+
+
 var clearCart = function () {
   cart = [];
   updateCart();
 }
+
+
 
 $('.view-cart').on('click', function () {
   $(".shopping-cart").toggleClass('show');
@@ -52,5 +62,10 @@ $('.container').on('click', '.add-to-cart', function () {
 $('.clear-cart').on('click', function () {
   clearCart();
 });
+
+$('.shopping-cart').on('click', '.remove-from-cart', function () {
+  var itemToRemove = $(this).closest('p');
+  removeFromCart(itemToRemove);
+})
 
 updateCart();
