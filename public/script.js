@@ -18,7 +18,7 @@ var updateCart = function () {
 }
 
 
-var addItem = function (item) {
+var addToCart = function (item) {
   cart.push(item);
   console.log(cart);
 }
@@ -32,12 +32,12 @@ $('.view-cart').on('click', function () {
   $(".shopping-cart").toggleClass('show');
 });
 
-$('.add-to-cart').on('click', function () {
+$('.container').on('click', '.add-to-cart', function () {
   var item = {
     name: $(this).closest(".item").data().name,
     price: $(this).closest(".item").data().price
   }
-  addItem(item);
+  addToCart(item);
   updateCart();
 });
 
@@ -45,5 +45,4 @@ $('.clear-cart').on('click', function () {
   clearCart();
 });
 
-// update the cart as soon as the page loads!
 updateCart();
